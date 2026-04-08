@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow Pro | Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="app-body">
+    <div class="tasks-shell">
+      <header class="simple-topbar glass-dark">
+        <div class="brand">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>TaskFlow Pro</span>
+        </div>
+
+        <nav class="simple-nav">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="tasks.html">Tasks</a>
+          <a href="calendar.html" class="active">Calendar</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="settings.html">Settings</a>
+        </nav>
+      </header>
+
+      <main class="container page-main">
+        <section class="page-header compact">
+          <div>
+            <p class="eyebrow">Scheduling View</p>
+            <h1>Project Calendar</h1>
+          </div>
+
+          <div class="header-buttons">
+            <button class="btn btn-secondary">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="btn btn-secondary">April 2025</button>
+            <button class="btn btn-secondary">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <section class="calendar-wrapper glass-light">
+          <div class="calendar-days">
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            <div>Sun</div>
+          </div>
+
+          <div class="calendar-grid">
+            <div class="calendar-cell">
+              <span class="date-number">1</span>
+              <div class="calendar-event blue">Sprint Planning</div>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">2</span>
+              <div class="calendar-event green">UI Review</div>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">3</span>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">4</span>
+              <div class="calendar-event orange">Backend Sync</div>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">5</span>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">6</span>
+            </div>
+            <div class="calendar-cell">
+              <span class="date-number">7</span>
+              <div class="calendar-event red">Deadline</div>
+            </div>
+
+            <div class="calendar-cell"><span class="date-number">8</span></div>
+            <div class="calendar-cell"><span class="date-number">9</span></div>
+            <div class="calendar-cell">
+              <span class="date-number">10</span>
+              <div class="calendar-event blue">Testing</div>
+            </div>
+            <div class="calendar-cell"><span class="date-number">11</span></div>
+            <div class="calendar-cell">
+              <span class="date-number">12</span>
+              <div class="calendar-event green">Deploy Preview</div>
+            </div>
+            <div class="calendar-cell"><span class="date-number">13</span></div>
+            <div class="calendar-cell"><span class="date-number">14</span></div>
+
+            <div class="calendar-cell"><span class="date-number">15</span></div>
+            <div class="calendar-cell">
+              <span class="date-number">16</span>
+              <div class="calendar-event orange">Client Demo</div>
+            </div>
+            <div class="calendar-cell"><span class="date-number">17</span></div>
+            <div class="calendar-cell"><span class="date-number">18</span></div>
+            <div class="calendar-cell">
+              <span class="date-number">19</span>
+              <div class="calendar-event blue">Code Review</div>
+            </div>
+            <div class="calendar-cell"><span class="date-number">20</span></div>
+            <div class="calendar-cell"><span class="date-number">21</span></div>
+
+            <div class="calendar-cell"><span class="date-number">22</span></div>
+            <div class="calendar-cell"><span class="date-number">23</span></div>
+            <div class="calendar-cell"><span class="date-number">24</span></div>
+            <div class="calendar-cell">
+              <span class="date-number">25</span>
+              <div class="calendar-event green">Feature Freeze</div>
+            </div>
+            <div class="calendar-cell"><span class="date-number">26</span></div>
+            <div class="calendar-cell"><span class="date-number">27</span></div>
+            <div class="calendar-cell"><span class="date-number">28</span></div>
+
+            <div class="calendar-cell"><span class="date-number">29</span></div>
+            <div class="calendar-cell"><span class="date-number">30</span></div>
+            <div class="calendar-cell muted-cell"></div>
+            <div class="calendar-cell muted-cell"></div>
+            <div class="calendar-cell muted-cell"></div>
+            <div class="calendar-cell muted-cell"></div>
+            <div class="calendar-cell muted-cell"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
