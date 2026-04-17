@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow Pro | Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="app-body">
+    <div class="tasks-shell">
+      <header class="simple-topbar glass-dark">
+        <div class="brand">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>TaskFlow Pro</span>
+        </div>
+
+        <nav class="simple-nav">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="tasks.html" class="active">Tasks</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="team.html">Team</a>
+          <a href="settings.html">Settings</a>
+        </nav>
+      </header>
+
+      <main class="tasks-main container">
+        <section class="page-header compact">
+          <div>
+            <p class="eyebrow">Task Workspace</p>
+            <h1>Kanban Task Board</h1>
+          </div>
+
+          <div class="header-buttons">
+            <button class="btn btn-secondary" id="clearAllTasksBtn">
+              <i class="fa-solid fa-trash-can"></i> Clear All
+            </button>
+            <button class="btn btn-primary" id="openTaskModalBtn">
+              <i class="fa-solid fa-plus"></i> Add Task
+            </button>
+          </div>
+        </section>
+
+        <section class="task-filters glass-light">
+          <div class="filter-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="taskSearchInput"
+              placeholder="Search by task title or description"
+            />
+          </div>
+
+          <select id="priorityFilter">
+            <option value="all">All Priorities</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="all">All Status</option>
+            <option value="todo">To Do</option>
+            <option value="progress">In Progress</option>
+            <option value="review">Review</option>
+            <option value="done">Completed</option>
+          </select>
+        </section>
+
+        <section class="board-summary">
+          <div class="summary-pill glass-light">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Total: <strong id="totalTasksValue">0</strong></span>
+          </div>
+
+          <div class="summary-pill glass-light">
+            <i class="fa-solid fa-clock"></i>
+            <span>Active: <strong id="activeTasksValue">0</strong></span>
+          </div>
+
+          <div class="summary-pill glass-light">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Completed: <strong id="completedTasksValue">0</strong></span>
+          </div>
+        </section>
+
+        <section class="kanban-board" id="kanbanBoard">
+          <div class="kanban-column glass-light" data-status="todo">
+            <div class="column-header">
+              <h3>To Do</h3>
+              <span class="task-count">0</span>
+            </div>
+            <div class="task-list" id="todo-list"></div>
+          </div>
+
+          <div class="kanban-column glass-light" data-status="progress">
+            <div class="column-header">
+              <h3>In Progress</h3>
+              <span class="task-count">0</span>
+            </div>
+            <div class="task-list" id="progress-list"></div>
+          </div>
+
+          <div class="kanban-column glass-light" data-status="review">
+            <div class="column-header">
+              <h3>Review</h3>
+              <span class="task-count">0</span>
+            </div>
+            <div class="task-list" id="review-list"></div>
+          </div>
+
+          <div class="kanban-column glass-light" data-status="done">
+            <div class="column-header">
+              <h3>Completed</h3>
+              <span class="task-count">0</span>
+            </div>
+            <div class="task-list" id="done-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="task-modal-overlay" id="taskModalOverlay">
+      <div class="task-modal glass-light">
+        <div class="modal-top">
+          <h2>Create New Task</h2>
+          <button class="close-modal-btn" id="closeTaskModalBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <div class="form-group">
+            <label for="taskTitle">Task Title</label>
+            <input
+              type="text"
+              id="taskTitle"
+              placeholder="Enter task title"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <input
+              type="text"
+              id="taskDescription"
+              placeholder="Enter task description"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="taskStatus">Status</label>
+              <select id="taskStatus">
+                <option value="todo">To Do</option>
+                <option value="progress">In Progress</option>
+                <option value="review">Review</option>
+                <option value="done">Completed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="taskDeadline">Deadline</label>
+            <input
+              type="text"
+              id="taskDeadline"
+              placeholder="Example: Apr 20"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary full-width">
+            <i class="fa-solid fa-floppy-disk"></i> Save Task
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
